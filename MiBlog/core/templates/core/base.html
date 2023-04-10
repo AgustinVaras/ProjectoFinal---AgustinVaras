@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Base
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Mi Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Perfil</a></li>
+            </ul>
+        </nav>
+            <div class="login">
+                <li><a href="login">Login</a></li>
+            </div>
+    </header>
+    {% block Contenido_Variable%}
+    {% endblock %}
+    <footer>
+
+    </footer>
+</body>
+</html>
