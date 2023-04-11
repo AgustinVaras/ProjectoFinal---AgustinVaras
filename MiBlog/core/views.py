@@ -46,13 +46,13 @@ def login_form(request):
 
 class PostsListarView(ListView):
     model = post 
-    template = 'posts_list.html'
+    template_name = 'core/posts_list.html'
 
 class PostDetailView(DetailView):
     model = post
-    template = 'post_detail.html'
+    template_name = 'core/post_detail.html'
 
 class PostAddView(CreateView):
     model = post
-    template = 'post_add.html'
+    template_name = 'core/post_add.html'
     fields = '__all__'
