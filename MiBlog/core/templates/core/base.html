@@ -16,9 +16,14 @@
     <header>
         <h1>Mi Blog</h1>
         <nav>
-            <ul>
+            <ul class="nav">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Blogs</a>
+                    <ul>
+                        <li><a href="{% url 'Add_Post' %}">Cargar Post </a></li>
+                        <li><a href="List_Posts">Listar Post </a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Perfil</a></li>
             </ul>
         </nav>

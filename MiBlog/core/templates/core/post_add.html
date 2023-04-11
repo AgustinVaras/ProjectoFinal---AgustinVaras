@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Add_Post
+{% endblock title %}
+
+{% block Contenido_Variable %}
+<div>
+    <h1>Cargar Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <button>Post</button>
+
+    </form>
+</div>
+{% endblock  %}

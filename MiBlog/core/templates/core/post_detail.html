@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Post_Detail
+{% endblock title %}
+
+{% block Contenido_Variable %}
+<section>
+    <div>
+        <h1>{{ post.title }}</h1>
+        <small>By: {{ post.author.first_name }} {{ post.author.last_name}} </small>
+        <div>
+            {{ post.body }}
+        </div>
+    </div>
+</section>
+
+{% endblock  %}
