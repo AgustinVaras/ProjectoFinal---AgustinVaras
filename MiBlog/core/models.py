@@ -19,7 +19,7 @@ class post(models.Model):
     creacion = models.DateField(auto_now_add=True)
     ultima_mod = models.DateField(auto_now=True)
 
-    img = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=None)
+    img = models.ImageField(blank=True,upload_to=None, height_field=None, width_field=None, max_length=None)
 
     def __str__(self) -> str:
         return f"{self.titulo} | {self.subtitulo}"

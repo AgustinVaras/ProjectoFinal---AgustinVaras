@@ -3,18 +3,21 @@
 {% load static %}
 
 {% block title %}
-    Post_Detail
+    {{post.titulo}}
 {% endblock title %}
 
 {% block Contenido_Variable %}
 <section>
-    <div>
-        <h1>{{ post.title }}</h1>
-        <small>By: {{ post.author.first_name }} {{ post.author.last_name}} </small>
+        <h1>{{ post.titulo }}</h1>
+        <h4> {{ post.subtitulo}}</h4>
+        <small>By: {{ post.author.username }} </small><br/>
+        <hr>
+        <br>
         <div>
-            {{ post.body }}
+            {{ post.cuerpo }}
         </div>
-    </div>
+        <br/><br/>
+        <a href="{% url 'List_Posts' %}" class="btn btn-secondary">Volver</a>
 </section>
 
 {% endblock  %}

@@ -7,14 +7,13 @@
 {% endblock title %}
 
 {% block Contenido_Variable %}
-<ul>
-
-    {% for post in object_list %}
-    <li>{{ post.titulo }} - {{ post.author }}<br>
-    {{ post.subtitulo }}</li>
     
-    {% endfor %}
-</ul>
+    <ul>
+        {% for post in object_list %}
+        <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- {{ post.author }}<br>
+            {{ post.subtitulo }}</li>
+            {% endfor %}
+    </ul>
 
 {% endblock %}
 
