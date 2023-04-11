@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 # Create your models here.
 
 #Crear modelos para blogs, usuarios
@@ -23,3 +24,6 @@ class post(models.Model):
     def __str__(self) -> str:
         return f"{self.titulo} | {self.subtitulo}"
 
+    def get_absolute_url(self):
+        return reverse('home', args=(str(self.id)) )
+    
