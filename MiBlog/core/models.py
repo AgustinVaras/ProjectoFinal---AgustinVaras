@@ -25,5 +25,5 @@ class post(models.Model):
         return f"{self.titulo} | {self.subtitulo}"
 
     def get_absolute_url(self):
-        return reverse('home', args=(str(self.id)) )
+        return reverse('Detail_Post', args=(str(self.id)) )
     

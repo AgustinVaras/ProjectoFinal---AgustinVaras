@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    Add_Post
+    Edit Post
 {% endblock title %}
 
 {% block Contenido_Variable %}
@@ -13,7 +13,7 @@
         {% csrf_token %}
         
         {{ form.as_p }}
-        <button class="btn btn-secondary">Post</button>
+        <a href="{% url 'List_Posts' %}" class="btn btn-secondary">Save</a>
 
     </form>
 </div>
