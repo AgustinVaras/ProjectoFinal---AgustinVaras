@@ -16,6 +16,8 @@
         <div>
             {{ post.cuerpo }}
         </div>
+        <hr>
+        <br><small>Creado: {{post.creacion}} | Ultima modificación: {{post.ultima_mod}} </small>
         <br/><br/>
         <a href="{% url 'List_Posts' %}" class="btn btn-primary">Volver</a> | <a href="{% url 'Edit_Post' post.pk %}" class="btn btn-secondary">Editar</a>
         <br><br><a href="{% url 'Delete_Post' post.pk %}" class="btn btn-danger">Eliminar</a>
