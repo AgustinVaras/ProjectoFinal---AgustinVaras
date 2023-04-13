@@ -3,14 +3,15 @@
 {% load static %}
 
 {% block title %}
-    Login
+    Registro
 {% endblock title %}
 
 {% block Contenido_Variable %}
 <div class="form-group">
-    <h1>Login</h1>
+    <h1>Registro</h1>
     <form method="POST">
         {% csrf_token %}
+        
         {{ form.as_p }}
         <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
     </form>
