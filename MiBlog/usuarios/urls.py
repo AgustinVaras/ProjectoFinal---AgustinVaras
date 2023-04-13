@@ -3,5 +3,4 @@ from .views import UsuarioRegistroView
 
 urlpatterns = [
     path('usuarios/', UsuarioRegistroView.as_view(), name='Registro'),
-    
 ]
