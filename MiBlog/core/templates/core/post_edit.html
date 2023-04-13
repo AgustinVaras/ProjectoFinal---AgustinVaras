@@ -3,17 +3,18 @@
 {% load static %}
 
 {% block title %}
-    Edit Post
+    Editar {{post.titulo}}
 {% endblock title %}
 
 {% block Contenido_Variable %}
-<div>
+<div class="form-group">
     <h1>Cargar Post</h1>
     <form method="POST">
         {% csrf_token %}
         
         {{ form.as_p }}
-        <a href="{% url 'List_Posts' %}" class="btn btn-secondary">Save</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
+
 
     </form>
 </div>
