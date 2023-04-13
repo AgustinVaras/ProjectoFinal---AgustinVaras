@@ -14,6 +14,6 @@ from .forms import UsuarioRegistroForm
 # Create your views here
 class UsuarioRegistroView(generic.CreateView):
     form_class = UsuarioRegistroForm
-    template_name = 'usuarios/registro.html'
+    template_name = 'registration/registro.html'
     success_url = reverse_lazy('login')
 
