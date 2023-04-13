@@ -17,7 +17,7 @@
             {{ post.cuerpo }}
         </div>
         <br/><br/>
-        <a href="{% url 'List_Posts' %}" class="btn btn-secondary">Volver</a>
+        <a href="{% url 'List_Posts' %}" class="btn btn-primary">Volver</a> | <a href="{% url 'Edit_Post' post.pk %}" class="btn btn-secondary">Editar</a>
 </section>
 
 {% endblock  %}
