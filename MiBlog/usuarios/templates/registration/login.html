@@ -12,7 +12,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Login</button> 
     </form>
 </div>
 {% endblock  %}
