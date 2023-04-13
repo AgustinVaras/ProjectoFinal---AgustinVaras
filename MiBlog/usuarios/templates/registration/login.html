@@ -3,17 +3,16 @@
 {% load static %}
 
 {% block title %}
-    Cargar Post
+    Login
 {% endblock title %}
 
 {% block Contenido_Variable %}
 <div class="form-group">
-    <h1>Cargar Post</h1>
+    <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}
-        
         {{ form.as_p }}
-        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Login</button> 
     </form>
 </div>
 {% endblock  %}

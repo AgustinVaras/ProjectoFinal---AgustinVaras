@@ -26,13 +26,23 @@
                             <li><a href="{% url 'Add_Post' %}">Cargar Post </a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Perfil</a></li>
+                    <li><a href="#">Usuario</a>
+                        <ul>
+                            {% if user.is_authenticated %}
+                            
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            
+                            {% else %}
+
+                            <li><a href="{% url 'login' %}">Login</a></li>
+
+                            {% endif %}
+                            <li><a href="{% url 'Registro' %}">Registro</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
-            <div class="login">
-                <li><a href="login">Login</a></li>
-            </div>
     </header>
     <div class="container div-display">
         {% block Contenido_Variable%}

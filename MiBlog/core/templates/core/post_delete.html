@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Eliminar {{post.titulo}}
+{% endblock title %}
+
+{% block Contenido_Variable %}
+<div>
+    <h1>Eliminar {{post.titulo}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <strong>Esta seguro que desea eliminar el post? </strong>
+        <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class= "btn btn-danger">Eliminar</button>
+
+    </form>
+</div>
+{% endblock  %}
