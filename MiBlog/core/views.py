@@ -58,3 +58,7 @@ class PostAddView(CreateView):
     model = post
     form_class =  PostAddForm
     template_name = 'core/post_add.html'
+
+class PostDeleteView(DeleteView):
+    model = post 
+    template_name = 'core/post_delete.html'
