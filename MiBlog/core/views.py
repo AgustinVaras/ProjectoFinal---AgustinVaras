@@ -11,7 +11,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+#Importaciones para mis modelos y forms
 from core.models import post
+from .forms import PostAddForm
 
 # Create your views here.
 def inicio(request):
@@ -54,5 +56,5 @@ class PostDetailView(DetailView):
 
 class PostAddView(CreateView):
     model = post
+    form_class =  PostAddForm
     template_name = 'core/post_add.html'
-    fields = '__all__'
