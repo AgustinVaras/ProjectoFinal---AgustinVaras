@@ -61,3 +61,13 @@ class PostAddView(CreateView):
     model = post
     form_class =  PostAddForm
     template_name = 'core/post_add.html'
+
+class PostEditView(UpdateView):
+    model = post
+    form_class =  PostEditForm
+    template_name = 'core/post_edit.html'
+
+class PostDeleteView(DeleteView):
+    model = post
+    template_name = 'core/post_delete.html'
+    success_url = reverse_lazy('List_Posts')
