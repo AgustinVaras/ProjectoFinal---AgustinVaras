@@ -20,6 +20,7 @@ def inicio(request):
 class PostsListarView(ListView):
     model = post 
     template_name = 'core/posts_list.html'
+    ordering = ['-ultima_mod']
 
 class PostDetailView(DetailView):
     model = post
