@@ -7,6 +7,17 @@ from datetime import datetime, date
 #Crear modelos para blogs, usuarios
 
 
+class categoria(models.Model):
+    nombre = models.CharField(max_length=75, unique=True)
+
+    def __str__(self) -> str:
+        return self.nombre
+    
+    def get_absolute_url(self):
+        return reverse('home')
+    
+
+
 class post(models.Model):
     #Propiedades propias del post
     titulo = models.CharField(max_length=50)
@@ -27,4 +38,6 @@ class post(models.Model):
 
     def get_absolute_url(self):
         return reverse('Detail_Post', args=(str(self.id)) )
+
+
     
