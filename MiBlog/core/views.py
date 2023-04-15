@@ -24,6 +24,10 @@ class PostsListarView(ListView):
     template_name = 'core/posts_list.html'
     ordering = ['-ultima_mod']
 
+def CategoriasView(request, cats):
+    posts_categoria = post.objects.filter(categoria=cats)
+    return render(request, 'categorias_list.html', {'posts': posts_categoria})
+
 #Detail Vies
 class PostDetailView(DetailView):
     model = post

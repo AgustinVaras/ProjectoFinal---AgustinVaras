@@ -1,14 +1,15 @@
 from django.urls import path
-from core.views import inicio, PostAddView, PostDetailView, PostsListarView, PostEditView, PostDeleteView,CategAddView
+from core.views import inicio, PostAddView, PostDetailView, PostsListarView, PostEditView, PostDeleteView,CategAddView, CategoriasView
 
 urlpatterns = [
     path("", inicio, name="home"),
     
     #List Views
-    path("List_Posts", PostsListarView.as_view(), name="List_Posts"),
+    path("List_Posts/", PostsListarView.as_view(), name="List_Posts"),
+    path("Categorias/<str:cats>", CategoriasView, name="Categ_posts"),
 
     #Add Views
-    path("add_post", PostAddView.as_view(), name="Add_Post"),
+    path("add_post/", PostAddView.as_view(), name="Add_Post"),
     path("Categoria/add/", CategAddView.as_view(), name="Add_Categoria"),
     
     #Detail Views
