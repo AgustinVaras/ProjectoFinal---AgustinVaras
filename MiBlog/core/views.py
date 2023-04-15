@@ -10,32 +10,43 @@ from django.urls import reverse_lazy
 
 #Importaciones para mis modelos y forms
 #----------------------------------------------------------------------------------------------------------------------------------------------
-from core.models import post
+from core.models import post, categoria
 from .forms import PostAddForm, PostEditForm
 
 # Create your views here.
 def inicio(request):
     return render(request, 'core/home.html')
 
+
+#List Views
 class PostsListarView(ListView):
     model = post 
     template_name = 'core/posts_list.html'
     ordering = ['-ultima_mod']
 
+#Detail Vies
 class PostDetailView(DetailView):
     model = post
     template_name = 'core/post_detail.html'
 
+#Add Views
 class PostAddView(CreateView):
     model = post
     form_class =  PostAddForm
     template_name = 'core/post_add.html'
 
+class CategAddView(CreateView):
+    model = categoria 
+    template_name = 'categoria_add.html'
+    fields = '__all__'
+
+#Edit Views
 class PostEditView(UpdateView):
     model = post
     form_class =  PostEditForm
     template_name = 'core/post_edit.html'
 
+#Delete Views
 class PostDeleteView(DeleteView):
     model = post
     template_name = 'core/post_delete.html'
