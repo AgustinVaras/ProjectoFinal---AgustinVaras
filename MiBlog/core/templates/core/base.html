@@ -22,9 +22,11 @@
                     <a class="navbar-brand" href="{% url 'home' %}"> Mi Blog </a>
                     <li><a href="{% url 'home'%}">Home</a></li>
                     <li><a href="{% url 'List_Posts' %}">Blogs</a>
-                        <ul>
-                            <li><a href="{% url 'Add_Post' %}">Cargar Post </a></li>
-                        </ul>
+                        {% if user.is_authenticated %}
+                            <ul>
+                                <li><a href="{% url 'Add_Post' %}">Cargar Post </a></li>
+                            </ul>
+                        {% endif %}
                     </li>
                     <li><a href="#">Usuario</a>
                         <ul>

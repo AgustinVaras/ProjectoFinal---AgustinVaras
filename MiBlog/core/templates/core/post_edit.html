@@ -7,15 +7,25 @@
 {% endblock title %}
 
 {% block Contenido_Variable %}
-<div class="form-group">
-    <h1>Cargar Post</h1>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {{ form.as_p }}
-        <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
+    {% if user.is_authenticated %}
+
+        <div class="form-group">
+            <h1>Cargar Post</h1>
+            <form method="POST">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
 
 
-    </form>
-</div>
+            </form>
+        </div>
+
+    {% else %}
+
+            <h1>Necesita loguearse para acceder a este sitio</h1>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Home</a> | <a href="{% url 'login' %}" class="btn btn-primary">Login</a> 
+
+    {% endif %}
+
 {% endblock  %}
