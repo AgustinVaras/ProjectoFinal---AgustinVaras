@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Cargar Cartegoria
+{% endblock title %}
+
+
+{% block Contenido_Variable %}
+<div class="form-group">
+    <h1>Cargar Categoria</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
+    </form>
+</div>
+{% endblock  %}

@@ -37,7 +37,7 @@ class PostAddView(CreateView):
 
 class CategAddView(CreateView):
     model = categoria 
-    template_name = 'categoria_add.html'
+    template_name = 'core/categoria_add.html'
     fields = '__all__'
 
 #Edit Views
