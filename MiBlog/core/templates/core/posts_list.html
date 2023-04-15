@@ -10,8 +10,9 @@
     
     <ul>
         {% for post in object_list %}
-        <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | {{post.creacion}}</small><br>
-            {{ post.subtitulo }}
+        <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | {{ post.categoria }}</small><br>
+            {{ post.subtitulo }} <br>
+            <small>{{post.creacion}}</small>
         </li> 
 
         {% endfor %}
