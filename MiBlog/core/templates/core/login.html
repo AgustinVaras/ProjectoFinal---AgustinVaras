@@ -9,12 +9,25 @@
 {% block Contenido_Variable %}
 
 {% csrf_token %}
-<div>
-    <form action="" method="POST">
-        
-        {{ form.as_p }}
-        
-        <button type="submit"> Iniciar Sesion </button>
-    </form>
-</div>
+    {% if user.is_authenticated %}
+
+        <div>
+            <h1>Usted ya se encuentra logueado</h1>
+            <hr><br>
+            Si lo desea puede cerrar sesion y luego loguearse de nuevo.
+            <a href="{% url 'home' %}" class="btn btn-secondary"></a> | <a href="{% url 'logout' %}" class="btn btn-primary">Cerrar Sesion</a>
+        </div>
+
+    {% else %}
+
+        <div>
+            <form action="" method="POST">
+                
+                {{ form.as_p }}
+                
+                <button type="submit"> Iniciar Sesion </button>
+            </form>
+        </div>
+
+    {% endif %}
 {% endblock  %}
