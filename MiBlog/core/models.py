@@ -23,7 +23,7 @@ class post(models.Model):
     titulo = models.CharField(max_length=50)
     subtitulo = models.CharField(max_length=100)
     cuerpo = models.TextField()
-    categoria = models.CharField(max_length=75, default='Sin Categoria')
+    categoria = models.ForeignKey(categoria, on_delete=models.SET_DEFAULT, default='SinCategoria')
 
     #Foreign key a usuarios
     author = models.ForeignKey(User, on_delete=models.CASCADE)

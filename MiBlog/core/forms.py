@@ -2,12 +2,12 @@ from django import forms
 from phonenumber_field.formfields import PhoneNumberField
 from .models import post, categoria
 
-categorias = categoria.objects.all().values_list('nombre','nombre')
+# categorias = categoria.objects.all().values_list('nombre','nombre')
 
-list_categorias = []
+# list_categorias = []
 
-for item in categorias:
-    list_categorias.append(item)
+# for item in categorias:
+#     list_categorias.append(item)
 
 class PostAddForm(forms.ModelForm):
     class Meta:
@@ -17,7 +17,7 @@ class PostAddForm(forms.ModelForm):
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titulo del post'}),
             'subtitulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitulo del post'}),
-            'categoria':forms.Select(choices=list_categorias, attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
+            'categoria':forms.Select(attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
             'cuerpo': forms.Textarea(attrs={'class': 'form-control'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
             #'img': forms.ImageField(attrs={'class': 'form-control'}),
@@ -31,6 +31,6 @@ class PostEditForm(forms.ModelForm):
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titulo del post'}),
             'subtitulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitulo del post'}),
-            'categoria':forms.Select(choices=list_categorias, attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
+            'categoria':forms.Select(attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
             'cuerpo': forms.Textarea(attrs={'class': 'form-control'}),
         }
