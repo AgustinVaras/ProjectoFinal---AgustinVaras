@@ -29,14 +29,14 @@ def CategoriasView(request, cats=None):
     posts = None
     if cats:
         try:
-            categoria = Categoria.objects.get(nombre=cats)
+            categoria = Categoria.objects.get(nombre=str(cats).replace('-',' '))
         except Exception as e:
             categoria = 'Inexistente'
         else:
             posts = Post.objects.filter(categoria=categoria)
 
         # posts = get_object_or_404(Post, categoria=categoria)
-    return render(request, 'core/categoria_list.html', {'categoria':categoria, 'posts':posts})
+    return render(request, 'core/categoria_list.html', {'categoria':categoria, 'posts':posts, 'cats':str(cats).replace('-',' ')})
     
 
 #Detail Vies
