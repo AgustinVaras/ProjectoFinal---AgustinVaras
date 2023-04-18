@@ -36,7 +36,7 @@ def CategoriasView(request, cats=None):
             posts = Post.objects.filter(categoria=categoria)
 
         # posts = get_object_or_404(Post, categoria=categoria)
-    return render(request, 'core/categoria_list.html', {'categoria':categoria, 'posts':posts, 'cats':str(cats).replace('-',' ')})
+    return render(request, 'core/categoria_list.html', {'categoria':str(categoria).capitalize(), 'posts':posts})
     
 
 #Detail Vies

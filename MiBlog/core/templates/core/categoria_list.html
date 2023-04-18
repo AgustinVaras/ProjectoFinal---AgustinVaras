@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block title %}
-    {{categoria.nombre}}
+    {{categoria}}
 {% endblock title %}
 
 {% block Contenido_Variable %}
     {% if categoria != 'Inexistente'%}
         {% if posts %}
-            <h1>Categoria: {{categoria.nombre}}</h1>
+            <h1>Categoria: {{categoria}}</h1>
             <ul>
                 {% for post in posts %}
                 <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | {{ post.categoria }}</small><br>

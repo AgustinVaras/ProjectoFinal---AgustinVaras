@@ -16,6 +16,10 @@ class Categoria(models.Model):
     def get_absolute_url(self):
         return reverse('home')
     
+    def save(self,  *args, **kwargs):
+        self.nombre = self.nombre.lower()
+        return super(Categoria, self).save(*args, **kwargs)
+    
 
 
 class Post(models.Model):
