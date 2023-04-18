@@ -24,10 +24,20 @@ class PostsListarView(ListView):
     template_name = 'core/posts_list.html'
     ordering = ['-ultima_mod']
 
-def CategoriasView(request, cats):
-    categ = Categoria.objects.get(nombre=cats)
-    posts_categoria = Post.objects.filter(categoria=categ)
-    return render(request, 'core/categoria_list.html', {'posts':posts_categoria,'cats':cats, 'categ':categ})
+def CategoriasView(request, cats=None):
+    categoria = None
+    posts = None
+    if cats:
+        try:
+            categoria = Categoria.objects.get(nombre=cats)
+        except Exception as e:
+            categoria = 'Inexistente'
+        else:
+            posts = Post.objects.filter(categoria=categoria)
+
+        # posts = get_object_or_404(Post, categoria=categoria)
+    return render(request, 'core/categoria_list.html', {'categoria':categoria, 'posts':posts})
+    
 
 #Detail Vies
 class PostDetailView(DetailView):

@@ -3,13 +3,27 @@
 {% load static %}
 
 {% block title %}
-    {{cats}}
+    {{categoria.nombre}}
 {% endblock title %}
 
 {% block Contenido_Variable %}
    
-    <h1>Categoria: </h1>{{cats}}
-    {{posts.titulo}}
-    {{categ.nombre}}
+    {% if posts %}
+        <h1>Categoria: {{categoria.nombre}}</h1>
+        <ul>
+            {% for post in posts %}
+            <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | {{ post.categoria }}</small><br>
+                {{ post.subtitulo }} <br>
+                <small>{{post.creacion}}</small>
+            </li> 
+
+            {% endfor %}
+        </ul>
+
+    {% else %}
+
+        <h1>Esta pagina no existe . . .</h1><hr>
+        <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+    {% endif %}
 
 {% endblock  %}
