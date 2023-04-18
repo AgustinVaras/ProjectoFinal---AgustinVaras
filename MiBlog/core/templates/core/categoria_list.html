@@ -7,22 +7,26 @@
 {% endblock title %}
 
 {% block Contenido_Variable %}
-   
-    {% if posts %}
-        <h1>Categoria: {{categoria.nombre}}</h1>
-        <ul>
-            {% for post in posts %}
-            <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | {{ post.categoria }}</small><br>
-                {{ post.subtitulo }} <br>
-                <small>{{post.creacion}}</small>
-            </li> 
+    {% if categoria != 'Inexistente'%}
+        {% if posts %}
+            <h1>Categoria: {{categoria.nombre}}</h1>
+            <ul>
+                {% for post in posts %}
+                <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | {{ post.categoria }}</small><br>
+                    {{ post.subtitulo }} <br>
+                    <small>{{post.creacion}}</small>
+                </li> 
 
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
 
+        {% else %}
+
+            <h3>Esta categoria no contiene posts todavia, vuelva mas tarde</h3><hr>
+            <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+        {% endif %}
     {% else %}
-
-        <h1>Esta pagina no existe . . .</h1><hr>
+        <h3>Esta categoria no existe . . .</h3><hr>
         <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
     {% endif %}
 
