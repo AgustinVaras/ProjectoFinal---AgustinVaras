@@ -1,6 +1,6 @@
 from django import forms 
 from phonenumber_field.formfields import PhoneNumberField
-from .models import post, categoria
+from .models import Post, Categoria
 
 # categorias = categoria.objects.all().values_list('nombre','nombre')
 
@@ -11,7 +11,7 @@ from .models import post, categoria
 
 class PostAddForm(forms.ModelForm):
     class Meta:
-        model = post 
+        model = Post 
         fields = ('titulo', 'subtitulo','categoria', 'cuerpo', 'author')
 
         widgets = {
@@ -25,7 +25,7 @@ class PostAddForm(forms.ModelForm):
 
 class PostEditForm(forms.ModelForm):
     class Meta:
-        model = post
+        model = Post
         fields = ('titulo', 'subtitulo', 'categoria', 'cuerpo')
 
         widgets = {

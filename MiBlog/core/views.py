@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, request
 
 #Importaciones para views basadas en clases
@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 #Importaciones para mis modelos y forms
 #----------------------------------------------------------------------------------------------------------------------------------------------
-from core.models import post, categoria
+from core.models import Post, Categoria
 from .forms import PostAddForm, PostEditForm
 
 # Create your views here.
@@ -20,38 +20,39 @@ def inicio(request):
 
 #List Views
 class PostsListarView(ListView):
-    model = post 
+    model = Post 
     template_name = 'core/posts_list.html'
     ordering = ['-ultima_mod']
 
 def CategoriasView(request, cats):
-    posts_categoria = post.objects.filter(categoria=cats)
-    return render(request, 'categorias_list.html', {'posts': posts_categoria})
+    categ = Categoria.objects.get(nombre=cats)
+    posts_categoria = Post.objects.filter(categoria=categ)
+    return render(request, 'core/categoria_list.html', {'posts':posts_categoria,'cats':cats, 'categ':categ})
 
 #Detail Vies
 class PostDetailView(DetailView):
-    model = post
+    model = Post
     template_name = 'core/post_detail.html'
 
 #Add Views
 class PostAddView(CreateView):
-    model = post
+    model = Post
     form_class =  PostAddForm
     template_name = 'core/post_add.html'
 
 class CategAddView(CreateView):
-    model = categoria 
+    model = Categoria 
     template_name = 'core/categoria_add.html'
     fields = '__all__'
 
 #Edit Views
 class PostEditView(UpdateView):
-    model = post
+    model = Post
     form_class =  PostEditForm
     template_name = 'core/post_edit.html'
 
 #Delete Views
 class PostDeleteView(DeleteView):
-    model = post
+    model = Post
     template_name = 'core/post_delete.html'
     success_url = reverse_lazy('List_Posts')

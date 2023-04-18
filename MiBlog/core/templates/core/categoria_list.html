@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{cats}}
+{% endblock title %}
+
+{% block Contenido_Variable %}
+   
+    <h1>Categoria: </h1>{{cats}}
+    {{posts.titulo}}
+    {{categ.nombre}}
+
+{% endblock  %}

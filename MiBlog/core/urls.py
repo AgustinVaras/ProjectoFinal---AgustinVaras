@@ -6,7 +6,7 @@ urlpatterns = [
     
     #List Views
     path("List_Posts/", PostsListarView.as_view(), name="List_Posts"),
-    path("Categorias/<str:cats>", CategoriasView, name="Categ_posts"),
+    path("Categorias/<str:cats>/", CategoriasView, name="Categ_posts"),
 
     #Add Views
     path("add_post/", PostAddView.as_view(), name="Add_Post"),
