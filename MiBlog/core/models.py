@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 #Crear modelos para blogs, usuarios
@@ -26,7 +27,7 @@ class Post(models.Model):
     #Propiedades propias del post
     titulo = models.CharField(max_length=50)
     subtitulo = models.CharField(max_length=100)
-    cuerpo = models.TextField()
+    cuerpo = RichTextField(blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, default='SinCategoria')
 
     #Foreign key a usuarios
