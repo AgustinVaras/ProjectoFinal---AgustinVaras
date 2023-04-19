@@ -19,7 +19,8 @@ class PostAddForm(forms.ModelForm):
             'subtitulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitulo del post'}),
             'categoria':forms.Select(attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
             'cuerpo': forms.Textarea(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
+            'author': forms.TextInput(attrs={'class': 'form-control','value':'', 'id':'elder', 'type':'hidden'}),
+            # 'author': forms.Select(attrs={'class': 'form-control','value':'', 'id':'elder'}),
             #'img': forms.ImageField(attrs={'class': 'form-control'}),
         }
 

@@ -13,7 +13,7 @@
         <li><a href="{% url 'Detail_Post' post.pk %}">{{ post.titulo }}</a>- <small>{{ post.author }} | <a href="{% url 'Categ_posts' post.categoria|slugify %}">{{ post.categoria }}</a></small><br>
             {{ post.subtitulo }} <br>
             <small>{{post.creacion}} | Editado: {{post.ultima_mod}}</small>
-        </li> 
+        </li> <hr>
 
         {% endfor %}
     </ul>

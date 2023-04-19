@@ -19,6 +19,11 @@
             </form>
         </div>
 
+        <script>
+                var name = "{{ user.id }}";
+                document.getElementById("elder").value = name;
+        </script>
+
     {% else %}
 
         <h1>Necesita loguearse para acceder a este sitio</h1>
