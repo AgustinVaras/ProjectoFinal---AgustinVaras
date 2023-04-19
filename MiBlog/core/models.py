@@ -27,6 +27,7 @@ class Post(models.Model):
     #Propiedades propias del post
     titulo = models.CharField(max_length=50)
     subtitulo = models.CharField(max_length=100)
+    snippet = models.CharField(max_length=250, default="Resumen del post. . .")
     cuerpo = RichTextField(blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, default='SinCategoria')
 

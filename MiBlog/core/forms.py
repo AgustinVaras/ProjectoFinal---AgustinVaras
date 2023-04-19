@@ -12,13 +12,14 @@ from .models import Post, Categoria
 class PostAddForm(forms.ModelForm):
     class Meta:
         model = Post 
-        fields = ('titulo', 'subtitulo','categoria', 'cuerpo', 'author')
+        fields = ('titulo', 'subtitulo','categoria', 'cuerpo', 'snippet', 'author')
 
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titulo del post'}),
             'subtitulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitulo del post'}),
             'categoria':forms.Select(attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
             'cuerpo': forms.Textarea(attrs={'class': 'form-control'}),
+            'snippet':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Breve resumen del post'}),
             'author': forms.TextInput(attrs={'class': 'form-control','value':'', 'id':'elder', 'type':'hidden'}),
             # 'author': forms.Select(attrs={'class': 'form-control','value':'', 'id':'elder'}),
             #'img': forms.ImageField(attrs={'class': 'form-control'}),
@@ -27,11 +28,12 @@ class PostAddForm(forms.ModelForm):
 class PostEditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('titulo', 'subtitulo', 'categoria', 'cuerpo')
+        fields = ('titulo', 'subtitulo', 'categoria', 'cuerpo', 'snippet')
 
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titulo del post'}),
             'subtitulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitulo del post'}),
             'categoria':forms.Select(attrs={'class': 'form-control', 'placeholder': 'Categoria'}),
             'cuerpo': forms.Textarea(attrs={'class': 'form-control'}),
+            'snippet':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Breve resumen del post'}),
         }
