@@ -8,18 +8,23 @@
 
 {% block Contenido_Variable %}
     {% if user.is_authenticated %}
+        {% if  user.id == post.author.id %}
+            <div class="form-group">
+                <h1>Cargar Post</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    {{ form.as_p }}
+                    <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
 
-        <div class="form-group">
-            <h1>Cargar Post</h1>
-            <form method="POST">
-                {% csrf_token %}
-                
-                {{ form.as_p }}
-                <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class="btn btn-primary">Post</button> 
 
-
-            </form>
-        </div>
+                </form>
+            </div>
+        {% else %}
+            <h1>Usted no es el creador de este post</h1>
+            <hr>
+            <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+        {% endif %}
 
     {% else %}
 
