@@ -8,16 +8,21 @@
 
 {% block Contenido_Variable %}
     {% if user.is_authenticated %}
-        <div>
-            <h1>Eliminar {{post.titulo}}</h1>
-            <form method="POST">
-                {% csrf_token %}
-                <strong>Esta seguro que desea eliminar el post? </strong>
-                <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class= "btn btn-danger">Eliminar</button>
-
-            </form>
-        </div>
-
+        {% if user.id == post.author.id %}
+            <div>
+                <h1>Eliminar {{post.titulo}}</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    <strong>Esta seguro que desea eliminar el post? </strong>
+                    <a href="{% url 'Detail_Post' post.pk %}" class="btn btn-secondary">Cancelar</a> | <button class= "btn btn-danger">Eliminar</button>
+                    
+                </form>
+            </div>
+        {% else %}
+            <h1>Usted no es el creador de este post</h1>
+            <hr>
+            <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+        {% endif %}
     {% else %}
         <h1>Necesita loguearse para acceder a este sitio</h1>
         <a href="{% url 'home' %}" class="btn btn-secondary">Home</a> | <a href="{% url 'login' %}" class="btn btn-primary">Login</a> 
