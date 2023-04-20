@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 
 #Importaciones de mis modelos y forms
 #----------------------------------------------------------------------------------------------------------------------------------------------
-from .forms import UsuarioRegistroForm 
+from .forms import UsuarioRegistroForm, PerfilEditForm
 
 # Create your views here
 class UsuarioRegistroView(generic.CreateView):
@@ -19,7 +19,7 @@ class UsuarioRegistroView(generic.CreateView):
 
 
 class UsuarioEditView(generic.UpdateView):
-    form_class = UserChangeForm
+    form_class = PerfilEditForm
     template_name = 'registration/perfil_editar.html'
     success_url = reverse_lazy('home')
 
