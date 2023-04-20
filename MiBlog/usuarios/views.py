@@ -3,13 +3,14 @@ from django.shortcuts import render
 #Importaciones para el login
 #----------------------------------------------------------------------------------------------------------------------------------------------
 from django.views import generic
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 
 #Importaciones de mis modelos y forms
 #----------------------------------------------------------------------------------------------------------------------------------------------
-from .forms import UsuarioRegistroForm, PerfilEditForm
+from .forms import UsuarioRegistroForm, PerfilEditForm, PasswordChangingForm
 
 # Create your views here
 class UsuarioRegistroView(generic.CreateView):
@@ -25,3 +26,7 @@ class UsuarioEditView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangingForm
+    success_url = reverse_lazy('home')

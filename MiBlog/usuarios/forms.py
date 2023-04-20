@@ -1,7 +1,7 @@
 from django import forms 
 
 #importacion para modelado de mis forms de usuarios
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 
 
@@ -40,3 +40,13 @@ class PerfilEditForm(UserChangeForm):
         #mensajes de ayuda:
         help_texts = {k:"" for k in fields}
     
+class PasswordChangingForm(PasswordChangeForm):
+    old_password = forms.CharField(max_length=100, label='Vieja contraseña', widget=forms.PasswordInput(attrs={'class':'form-control','type':'password'} ))
+    new_password1 = forms.CharField(max_length=100, label='Nueva contraseña', widget=forms.PasswordInput(attrs={'class':'form-control','type':'password'}))
+    new_password2 = forms.CharField(max_length=100, label='Confrimar contraseña', widget=forms.PasswordInput(attrs={'class':'form-control','type':'password'}))
+
+    class Meta:
+        model = User 
+        fields = ['old_password', 'new_password1', 'new_password2']
+
+        help_texts = {k:"" for k in fields}
