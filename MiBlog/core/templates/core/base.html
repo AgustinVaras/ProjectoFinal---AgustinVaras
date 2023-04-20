@@ -32,6 +32,7 @@
                         <ul>
                             {% if user.is_authenticated %}
                             
+                            <li><a href="{% url 'Editar_Usuario' %}">Editar Perfil</a></li>
                             <li><a href="{% url 'logout' %}">Logout</a></li>
                             
                             {% else %}
@@ -49,12 +50,6 @@
                             
                             <li><a href="{% url 'Add_Categoria' %}">Cargar</a></li>
                             
-                            {% else %}
-
-                            <li><a href="{% url 'login' %}">Login</a></li>
-
-                            
-                            <li><a href="{% url 'Registro' %}">Registro</a></li>
                         </ul>
                     </li>
                     {% endif %}
