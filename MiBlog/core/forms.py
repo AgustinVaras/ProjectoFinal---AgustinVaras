@@ -12,7 +12,7 @@ from .models import Post, Categoria
 class PostAddForm(forms.ModelForm):
     class Meta:
         model = Post 
-        fields = ('titulo', 'subtitulo','categoria', 'cuerpo', 'snippet', 'author')
+        fields = ('titulo', 'subtitulo','categoria', 'cuerpo', 'snippet', 'author', 'header_imagen')
 
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titulo del post'}),

@@ -8,6 +8,11 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+#Importaciones para validaciones de usuarios
+#----------------------------------------------------------------------------------------------------------------------------------------------
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 #Importaciones para mis modelos y forms
 #----------------------------------------------------------------------------------------------------------------------------------------------
 from core.models import Post, Categoria

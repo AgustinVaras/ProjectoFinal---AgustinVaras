@@ -30,6 +30,7 @@ class Post(models.Model):
     snippet = models.CharField(max_length=250, default="Resumen del post. . .")
     cuerpo = RichTextField(blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, default='SinCategoria')
+    header_imagen = models.ImageField(null=True, blank=True, upload_to="posts-img/")
 
     #Foreign key a usuarios
     author = models.ForeignKey(User, on_delete=models.CASCADE)
