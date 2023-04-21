@@ -16,6 +16,11 @@
         <div>
             {{ post.cuerpo|safe }}
         </div>
+        {% if post.header_imagen %}
+            <div>
+                <img src="{{post.header_imagen.url }}">
+            </div>
+        {% endif %}
         <hr>
         <br><small>Creado: {{post.creacion}} | Ultima modificación: {{post.ultima_mod}} </small>
         <br/><br/> 
