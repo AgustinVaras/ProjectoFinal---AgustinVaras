@@ -11,15 +11,18 @@
         <h1>{{ post.titulo }}</h1>
         <h4> {{ post.subtitulo}}</h4>
         <small> {{ post.categoria }} | By: 
-            <img class="rounded-circle"  
-            {% if  post.author.perfil.foto_perfil %}
-                src="{{ post.author.perfil.foto_perfil.url }}"
-            {% else %}
-                src="{% static 'core/img/speaker-1.png' %}"
+            <a href="{% url 'Perfil_Detail' post.author.perfil.id %}"> <img class="rounded-circle"  
+                {% if  post.author.perfil.foto_perfil %}
+                    src="{{ post.author.perfil.foto_perfil.url }}"
+                {% else %}
+                    src="{% static 'core/img/speaker-1.png' %}"
 
-            {% endif %}
-             alt="avatar1" width=50 height=50>
-        </small><br/>
+                {% endif %}
+                alt="avatar1" width=50 height=50>
+            </a>
+        </small>
+        
+        <br/>
         <hr>
         <br>
         <div>

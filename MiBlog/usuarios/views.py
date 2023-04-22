@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 #Importaciones para el login
 #----------------------------------------------------------------------------------------------------------------------------------------------
@@ -11,6 +11,7 @@ from django.urls import reverse_lazy
 #Importaciones de mis modelos y forms
 #----------------------------------------------------------------------------------------------------------------------------------------------
 from .forms import UsuarioRegistroForm, PerfilEditForm, PasswordChangingForm
+from .models import Perfil
 
 # Create your views here
 class UsuarioRegistroView(generic.CreateView):
@@ -30,3 +31,16 @@ class UsuarioEditView(generic.UpdateView):
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordChangingForm
     success_url = reverse_lazy('home')
+
+class PerfilDetailView(generic.DetailView):
+    model = Perfil
+    template_name = 'registration/perfil_usuario.html'
+
+    def get_context_data(self, *args, **kwargs):
+        usuario = Perfil.objects.all()
+        context = super(PerfilDetailView, self).get_context_data(*args, **kwargs)
+
+        perfil_usuario = get_object_or_404(Perfil, id=self.kwargs['pk'])
+
+        context["perfil_usuario"] = perfil_usuario
+        return context

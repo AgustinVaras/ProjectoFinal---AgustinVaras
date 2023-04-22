@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{perfil_usuario.usuario.first_name}} {{perfil_usuario.usuario.last_name}}
+{% endblock title %}
+
+{% block Contenido_Variable %}
+<section>
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-2">
+                <img class="rounded-circle card-img"  
+                {% if  perfil_usuario.foto_perfil %}
+                    src="{{ perfil_usuario.foto_perfil.url }}"
+                {% else %}
+                    src="{% static 'core/img/speaker-1.png' %}"
+
+                {% endif %}
+                alt="avatar1">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{perfil_usuario.usuario.first_name }} 
+                        {{perfil_usuario.usuario.last_name }}
+                    </h5>
+                    <p class="small text-muted">
+                        {% if  perfil_usuario.website_url %}
+                            <a href="{{ perfil_usuario.website_url }}">Pagina Web</a>
+                        {% endif %}
+
+                        {% if perfil_usuario.ig_url %}
+                            <a href="{{perfil_usuario.ig_url}}">Instagram</a>
+                        {% endif %}
+
+                        {% if perfil_usuario.facebook_url %}
+                            <a href="{{perfil_usuario.facebook_url}}">Facebook</a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">
+                        {{perfil_usuario.bio|safe}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock  %}
