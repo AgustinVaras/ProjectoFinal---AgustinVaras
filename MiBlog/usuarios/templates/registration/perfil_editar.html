@@ -9,6 +9,10 @@
 {% block Contenido_Variable %}
 <div class="form-group">
     <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <br>
+    <div>
+        Bio: {{ user.perfil.bio|safe }}
+    </div>
     <form method="POST">
         {% csrf_token %}
         
